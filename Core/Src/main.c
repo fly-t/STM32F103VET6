@@ -49,7 +49,7 @@ uint8_t tx_buffer[10];
 
 uint8_t  rx1_data  = 0;
 uint16_t rx1_count = 0;
-uint8_t  rx1_buffer[10];
+uint8_t  rx1_buffer[16];
 uint16_t rx1_timeout = 0;
 /* USER CODE END PV */
 
@@ -126,7 +126,7 @@ int main(void)
   {
     /* USER CODE END WHILE */
 		if(rx1_timeout >0){
-			if(++rx1_timeout >= 5){
+			if(++rx1_timeout >= 3){
 				rx1_timeout = 0;
 				HAL_UART_Transmit_IT(&huart1,rx1_buffer,rx1_count);
 				rx1_count = 0;
